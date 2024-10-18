@@ -1,0 +1,34 @@
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+   }
+
+ input[type=text], select {
+    width: 100%;
+    padding: 20px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    content: center;
+    background-color: #AEB7B3;
+  
+}
+body{
+  background-color: #AEB7B3;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+ 
+}
+button{
+  padding: 20px;
+  content: center;
+  background-color: #E1EFE6;
+  border-radius: 15px;
+}
