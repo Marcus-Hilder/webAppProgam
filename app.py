@@ -9,6 +9,8 @@ def index():
 
 def get_db_connection():
     conn = sqlite3.connect('yatchs.html')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 def init_db():
     conn = get_db_connection()
@@ -25,4 +27,9 @@ def New_Yatch():
         length = request.form['length']
         price = request.form['price']
 
-        if not yatch_name or not manufacturer
+        if not yatch_name or not manufacturer or not model or not year_manufacture or not length or not price:
+            flash('all fields requied')
+        else:
+            conn = get_db_connection()
+            conn.execute('INSERT INTO yatchs (')
+            conn.
