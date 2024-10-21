@@ -32,3 +32,31 @@ button{
   background-color: #E1EFE6;
   border-radius: 15px;
 }
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+header{
+  width: 75%;
+  margin: 50px auto;
+  background-color: #737373;
+  padding: 15px 50px;
+  border-radius: 50px;
+}
+.navbar{display: flex;
+  justify-content: space-around;
+
+}
+.navbar a{
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  transition: 0.5s;
+}
+.navbar a:hover{
+  background-color: #313131;
+}
