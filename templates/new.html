@@ -1,0 +1,44 @@
+
+<head>
+    <title>New Boat</title>
+    
+</head>
+<body>
+    <h2 class="homeHeader">New game</h2>
+    <h4 class="homeDetails">Please enter new game info</h4>
+    
+{% block content %}
+<!--<img src="{{ url_for('static', filename='OIP (4).jpg') }}" />-->
+<form method="post">
+    <label for="Yatch_Name">Yatch Name</label>
+    <input type="text" name="yatch_name" id="yatch_name" required>
+
+  <!--  <label for="platform">Platform:</label>
+    <select name="platform" id="platform" required>
+        <option value="steam">Steam</option>
+        <option value="PS5">PS5</option>
+        <option value="xbox">Xbox</option>
+        <option value="switch">Switch</option>
+    </select>-->
+
+    <label for="manufacturer">manufacturer</label>
+    <input type="text" name="manufacturer" id="manufacturer" required>
+
+    <label for="model">model:</label>
+    <input type="text" name="model" id="model" required>
+
+    <label for="year_manufacture">year_manufacture:</label>
+    <input type="text" name="year_manufacture" id="year_manufacture" required>
+
+    <label for="length">lenth:</label>
+    <input type="integer" name="length" id="length" required>
+
+    <label for="price">price:</label>
+    <input type="integer" name="price" id="price" required>
+    
+    <div class="center">
+        <button type="submit">submit</button>
+    </div>
+</form>
+
+{% endblock %}
