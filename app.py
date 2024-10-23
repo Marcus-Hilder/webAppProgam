@@ -31,19 +31,19 @@ def New_Yatch():
             flash('all fields requied')
         else:
             conn = get_db_connection()
-            conn.execute('INSERT INTO yachts(yatch_name,manufacturer,model,year_manufacture,length,price) VALUES (?,?,?,?,?,?)'),(yatch_name, manufacturer, model, year_manufacture, length ,price)
+            conn.execute('INSERT INTO yachts(yatch_name,manufacturer,model,year_manufacture,length,price) VALUES (?,?,?,?,?,?)',(yatch_name, manufacturer, model, year_manufacture, length ,price))
             conn.commit()
             conn.close()
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
     return render_template("new.html")
 
 @app.route('/admin')
 def admin():
     conn = get_db_connection()
-    sql = "SELECT * FROM yatchs"
+    sql = "SELECT * FROM yachts;"
     yatch = conn.execute(sql).fetchall()
     conn.close()
-    return render_template('view_yatchs.html',yatch=yatch)
+    return render_template('view_yatchs.html',yachts=yatch)
 
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit_user(id):
@@ -71,7 +71,7 @@ def edit_user(id):
 @app.route('/delete/<int:id>',methods=['POST'])
 def  delete_yatchs(id):
     conn = get_db_connection()
-    conn.execute('DELETE FROM yachtsWHERE id = ?')
+    conn.execute('DELETE FROM yachts WHERE id = ?')
     conn.commit()
     conn.close()
     flash('user deleted successfully')
