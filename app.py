@@ -48,7 +48,7 @@ def admin():
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit_user(id):
     conn = get_db_connection()
-    games = conn.execute('SELECT * FROM yachts  where id = ?',(id,)).fetchone()
+    yatch = conn.execute('SELECT * FROM yachts  where id = ?',(id,)).fetchone()
     print(id)
     if request.method == 'POST':
         yatch_name = request.form['yatch_name']
@@ -65,13 +65,13 @@ def edit_user(id):
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
-    return render_template('login.html')
+    return render_template('update.html', yatch = yatch)
 
 
-@app.route('/delete/<int:id>',methods=['POST'])
+@app.route('/delete/<int:id>',methods=('POST',))
 def  delete_yatchs(id):
     conn = get_db_connection()
-    conn.execute('DELETE FROM yachts WHERE id = ?')
+    conn.execute('DELETE FROM yachts WHERE id = ?',(id,))
     conn.commit()
     conn.close()
     flash('user deleted successfully')

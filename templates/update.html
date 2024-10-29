@@ -1,0 +1,34 @@
+{% extends 'home.html' %}
+{% block header %}
+<head>
+    <title>New Boat</title>
+    
+</head>
+<body>
+    <h2 class="homeHeader">New Yatch</h2>
+    <h4 class="homeDetails">Please enter aunaccounted for yatch info</h4>
+{% endblock %}
+{% block content %}
+<form method="post">
+    <label for="yatch_name">"yatch name"</label>
+    <input type="text" name ="yatch_name" id="yatch_name" value="{{yatch.yatch_name}}" required >
+
+    <label for="manufacturer">manufacturer</label>
+    <input type="text" name="manufacturer" id="manufacturer" value="{{yatch.manufacturer}}" required>
+
+    <label for="model">model</label>
+    <input type="text" name="model" id="model" value="{{yatch.model}}" required>
+
+    <label for="year_manufacture">year_manufacture</label>
+    <input type="Integer" name="year_manufacture" id="year_manufacture" value="{{yatch.year_manufacture}}">
+
+    <label for="length">length</label>
+    <input type="Integer" name="length" id="length" value="{{yatch.length}}">
+
+    <label for="price">price</label>
+    <input type="Integer" name="price" id="price" value="{{yatch.price}}">
+    <div class="center">
+        <button type="submit">submit</button>
+    </div>
+</form>
+{% endblock %}
