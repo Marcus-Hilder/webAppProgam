@@ -10,23 +10,32 @@
 {% endblock %}
 {% block content %}
 <form method="post">
-    <label for="yatch_name">"yatch name"</label>
-    <input type="text" name ="yatch_name" id="yatch_name" value="{{yatch.yatch_name}}" required >
+    <table>
+        <thead>
+            <tr>
+                <th>yatch_name</th>
+                <th>manufacturer</th>
+                <th>model</th>
+                <th>year_manufacture</th>
+                <th>length</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td><input type="text" name ="yatch_name" id="yatch_name" value="{{yatch.yatch_name}}" required ></td>
 
-    <label for="manufacturer">manufacturer</label>
-    <input type="text" name="manufacturer" id="manufacturer" value="{{yatch.manufacturer}}" required>
+            <td><input type="text" name="manufacturer" id="manufacturer" value="{{yatch.manufacturer}}" required></td>
 
-    <label for="model">model</label>
-    <input type="text" name="model" id="model" value="{{yatch.model}}" required>
+            <td><input type="text" name="model" id="model" value="{{yatch.model}}" required></td>
 
-    <label for="year_manufacture">year_manufacture</label>
-    <input type="Integer" name="year_manufacture" id="year_manufacture" value="{{yatch.year_manufacture}}">
+            <td> <input type="Integer" name="year_manufacture" id="year_manufacture" value="{{yatch.year_manufacture}}"></td>
 
-    <label for="length">length</label>
-    <input type="Integer" name="length" id="length" value="{{yatch.length}}">
+            <td><input type="Integer" name="length" id="length" value="{{yatch.length}}"></td>
 
-    <label for="price">price</label>
-    <input type="Integer" name="price" id="price" value="{{yatch.price}}">
+            <td><input type="Integer" name="price" id="price" value="{{yatch.price}}"></td>
+        </tbody>
+    </table>
+
     <div class="center">
         <button type="submit">submit</button>
     </div>

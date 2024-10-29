@@ -61,7 +61,7 @@ def edit_user(id):
         if not yatch_name or not manufacturer or not model or not year_manufacture or not length or not price:
             flash('all fields requied')
         else:
-            conn.execute('UPDATE yachts SET yatch_name = ?, manufacturer = ?, year_manufacture = ?, length = ?, price = ? WHERE id = ?', (yatch_name, manufacturer, model, year_manufacture, length ,price, id))
+            conn.execute('UPDATE yachts SET yatch_name = ?, manufacturer = ?, model = ?, year_manufacture = ?, length = ?, price = ? WHERE id = ?', (yatch_name, manufacturer, model, year_manufacture, length ,price, id))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
