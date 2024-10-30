@@ -55,25 +55,24 @@ input[type=submit]:hover {
 
 div {
   border-radius: 5px;
-  background-color: #8fd4b5;
+
   padding: 20px;
 } 
 
 
 body{
-  background-color: #8fd4b5;
+  background-color: #85C7DE;
 }
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
-  
- 
+
 }
 button{
   padding: 20px;
   content: center;
-  background-color: #E1EFE6;
+  background-color: #B7EAAF;
   border-radius: 15px;
 }
 *{
@@ -108,6 +107,14 @@ header{
 table{
   margin: auto;
   width: 75%;
-  border: 3px solid green;
+  border: 3px solid #9CDE9F;
   padding: 10px;
+  background-color: #D1F5BE;
+}
+table, th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.homeHeader{
+  text-align: center;
 }

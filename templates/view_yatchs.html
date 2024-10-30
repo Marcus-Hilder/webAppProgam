@@ -2,25 +2,25 @@
 {% block header %}
 <head>
     <title>Admin</title>
-    
 </head>
 <body>
     <h2 class="homeHeader">Admin</h2>
-    <h4 class="homeDetails">Please enter aunaccounted for yatch info</h4>
+    <h4 class="homeDetails">Please enter unaccounted for yacht info</h4>
 {% endblock %}
 {% block content %}
-<h2>all yachts</h2>
+<h2>All Yachts</h2>
 <div style="margin: 12%;">
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>yacht Name</th>
-                <th>manufacturer</th>
-                <th>model</th>
-                <th>year_manufacture</th>
-                <th>length</th>
-                <th>value</th>
+                <th><a href="{{ url_for('admin', sort_by='id', sort_dir='desc' if sort_by == 'id' and sort_dir == 'asc' else 'asc') }}">ID</a></th>
+                <th><a href="{{ url_for('admin', sort_by='yatch_name', sort_dir='desc' if sort_by == 'yatch_name' and sort_dir == 'asc' else 'asc') }}">Yacht Name</a></th>
+                <th><a href="{{ url_for('admin', sort_by='manufacturer', sort_dir='desc' if sort_by == 'manufacturer' and sort_dir == 'asc' else 'asc') }}">Manufacturer</a></th>
+                <th><a href="{{ url_for('admin', sort_by='model', sort_dir='desc' if sort_by == 'model' and sort_dir == 'asc' else 'asc') }}">Model</a></th>
+                <th><a href="{{ url_for('admin', sort_by='year_manufacture', sort_dir='desc' if sort_by == 'year_manufacture' and sort_dir == 'asc' else 'asc') }}">Year of Manufacture</a></th>
+                <th><a href="{{ url_for('admin', sort_by='length', sort_dir='desc' if sort_by == 'length' and sort_dir == 'asc' else 'asc') }}">Length</a></th>
+                <th><a href="{{ url_for('admin', sort_by='price', sort_dir='desc' if sort_by == 'price' and sort_dir == 'asc' else 'asc') }}">Value</a></th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,24 +28,24 @@
             <tr>
                 <td>{{ yachts.id }}</td>
                 <td>{{ yachts.yatch_name }}</td>
-                <td>{{ yachts.manufacturer}}</td>
+                <td>{{ yachts.manufacturer }}</td>
                 <td>{{ yachts.model }}</td>
                 <td>{{ yachts.year_manufacture }}</td>
-                <td>{{ yachts.length}}</td>
-                <td>{{ yachts.length}}</td>
+                <td>{{ yachts.length }}</td>
+                <td>${{ yachts.price }}0</td>
                 <td>
-                    <a href="{{ url_for('edit_user', id=yachts.id)}}">Edit</a>
-                    <form  action="{{ url_for('delete_yatchs', id=yachts.id) }}" method="post">
+                    <form action="{{ url_for('delete_yatchs', id=yachts.id) }}" method="post">
                         <button type="submit">Delete</button>
-
                     </form>
                 </td>
-</div>
+                <td>
+                    <form action="{{ url_for('edit_user', id=yachts.id) }}" method="post">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-
-
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

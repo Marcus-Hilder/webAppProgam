@@ -39,11 +39,30 @@ def New_Yatch():
 
 @app.route('/admin')
 def admin():
+    sort_by = request.args.get('sort_by', 'yatch_name')  # Default column
+    sort_dir = request.args.get('sort_dir', 'asc')  # Default direction
+    
+    # Sanitize input to prevent SQL injection
+    valid_columns = ['yatch_name', 'manufacturer', 'model', 'year_manufacture', 'length', 'price', 'id']
+    if sort_by not in valid_columns:
+        sort_by = 'yatch_name'
+    if sort_dir not in ['asc', 'desc']:
+        sort_dir = 'asc'
+
     conn = get_db_connection()
-    sql = "SELECT * FROM yachts;"
-    yatch = conn.execute(sql).fetchall()
+
+    # Cast ID column to INTEGER when sorting
+    if sort_by == 'id':
+        sql = f"SELECT * FROM yachts ORDER BY CAST({sort_by} AS INTEGER) {sort_dir};"
+    else:
+        sql = f"SELECT * FROM yachts ORDER BY {sort_by} {sort_dir};"
+
+    yachts = conn.execute(sql).fetchall()
     conn.close()
-    return render_template('view_yatchs.html',yachts=yatch)
+
+    return render_template('view_yatchs.html', yachts=yachts, sort_by=sort_by, sort_dir=sort_dir)
+
+
 
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit_user(id):
@@ -51,7 +70,7 @@ def edit_user(id):
     yatch = conn.execute('SELECT * FROM yachts  where id = ?',(id,)).fetchone()
     print(id)
     if request.method == 'POST':
-        yatch_name = request.form['yatch_name']
+        yatch_name = request.form['yacht_name']
         manufacturer = request.form['manufacturer']
         model = request.form['model']
         year_manufacture = request.form['year_manufacture']

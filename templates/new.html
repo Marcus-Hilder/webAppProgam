@@ -5,22 +5,43 @@
     
 </head>
 <body>
-    <h2 class="homeHeader">New Yatch</h2>
+    <h1 class="homeHeader">New Yatch</h1>
     <h4 class="homeDetails">Please enter aunaccounted for yatch info</h4>
 {% endblock %}
 {% block content %}
 <!--<img src="{{ url_for('static', filename='OIP (4).jpg') }}" />-->
 <form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>yatch_name</th>
+                <th>manufacturer</th>
+                <th>model</th>
+                <th>year_manufacture</th>
+                <th>length</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                <td><input type="text" name ="yatch_name" id="yatch_name" required ></td>
+    
+                <td><input type="text" name="manufacturer" id="manufacturer" required></td>
+    
+                <td><input type="text" name="model" id="model"  required></td>
+    
+                <td> <input type="Integer" name="year_manufacture" id="year_manufacture" ></td>
+    
+                <td><input type="Integer" name="length" id="length" ></td>
+    
+                <td><input type="Integer" name="price" id="price" ></td>
+            </tbody>
+        </tbody>
+    </table>
     <label for="Yatch_Name">Yatch Name</label>
     <input type="text" name="yatch_name" id="yatch_name" required>
 
-  <!--  <label for="platform">Platform:</label>
-    <select name="platform" id="platform" required>
-        <option value="steam">Steam</option>
-        <option value="PS5">PS5</option>
-        <option value="xbox">Xbox</option>
-        <option value="switch">Switch</option>
-    </select>-->
+
 
     <label for="manufacturer">manufacturer</label>
     <input type="text" name="manufacturer" id="manufacturer" required>
