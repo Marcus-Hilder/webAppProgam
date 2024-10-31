@@ -34,13 +34,14 @@
                 <td>{{ yachts.length }}</td>
                 <td>${{ yachts.price }}0</td>
                 <td>
-                    <form action="{{ url_for('delete_yatchs', id=yachts.id) }}" method="post">
-                        <button type="submit">Delete</button>
+                   
+                    <form action="{{ url_for('edit_user', id=yachts.id) }}" method="post">
+                        <button type="submit">Edit</button>
                     </form>
                 </td>
                 <td>
-                    <form action="{{ url_for('edit_user', id=yachts.id) }}" method="post">
-                        <button type="submit">Edit</button>
+                    <form action="{{ url_for('delete_yatchs', id=yachts.id) }}" method="post">
+                        <button id="delete" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>

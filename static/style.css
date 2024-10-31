@@ -61,7 +61,7 @@ div {
 
 
 body{
-  background-color: #85C7DE;
+  background-color: #ffffff;
 }
 .center {
   display: flex;
@@ -107,14 +107,25 @@ header{
 table{
   margin: auto;
   width: 75%;
-  border: 3px solid #9CDE9F;
+  border: 3px solid #536B78;
+  border-radius: 10mm;
+  color: #ffffff;
+  font-family: ;
   padding: 10px;
-  background-color: #D1F5BE;
+  background-color: #ffffff;
 }
-table, th, td {
+table th, td {
   border: 1px solid black;
   border-radius: 10px;
+  background-color: black;
 }
 .homeHeader{
   text-align: center;
+}
+.homeDetails{
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#delete{
+  background-color: rgb(255, 0, 0);
 }
